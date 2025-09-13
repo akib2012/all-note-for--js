@@ -273,6 +273,29 @@ const array = [1,2,3,4,5,6];
 console.log(...array); /* by this o can bichia dite pari and new array retur korbe ja kaje asbe onk */
 
 
+///  distructing of array and object <<<<
+
+const friend = ["hello", "alom", "mithila","ha ha"];
+const [el1,el2,el3,el4] = friend;
+console.log(el1,el2,el3,el4);
+        /* here array distructing array sobgolo elemts ke alada alada akta variable er moded rakha lage 
+        here serial is main metter element name not main metter*/
+    /* object distructing here***************8 */
+person = {
+    name: "hero alom",
+    age: 34,
+    wife: "mithila",
+    country: "bd",
+    friend: ["bd","test"],
+    hero: "alom"
+}
+
+const {name,age} = person;
+
+console.log(name,age); /* here serial does not metter here jsut metter the ** the key name should be same ase the original object key name***** */
+
+
+
 /// 
 
 
