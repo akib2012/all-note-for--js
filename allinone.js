@@ -4,6 +4,9 @@
 *****>>>> এখানে >> ///  মানে নতুন কিছু বুজায় !!  >> (/*  *) এটা দিয়া বুজায় এক্সত্রা কিছু   
 ******************************** */
 
+import { Component } from "react";
+import { jsx } from "react/jsx-runtime";
+
 /* ******************************************************************* */
 
 
@@ -446,7 +449,159 @@ console.log(dot_notation, braket_notation);
 /* ****strigh notations need when the (key name) olta palta thakbe** << ha ha ha.....>>*** */
 
 
+///  more will be add html csss and the valina js here ** below start with the >>> react js>>
+
+
+
+piya 
+
+
+ 
+/* **************** ***********  START HERE REACT JS *******************************8 */
+
 /// 
+
+
+
+/// setup react 
+
+
+vite.js থিকা প্রোজেক্ট সেট করতে হুবে
+=> পরে সেখানে সোর্স থিকা কাজ করতে হুবে নতুন জদি লাগে 
+=> more will be update Here 
+
+
+/// comoponents based frame work here
+
+=> 4 way to to define Component
+1. similer in look differnet in data
+2. container component
+3. no commot patteren but brekdown for working porpuse
+4. stand alone componetn
+
+=> componetn bild in jsx 
+=> jsx = javascript + xml  file 
+>>export the component  
+>> define the functions
+
+=> general stucture of jsx : 
+
+export default function Todo({ task, is_ral }) {
+    return (
+        <div>
+            <li>task: {task}</li>
+            <li>is really good: {is_ral}</li>
+        </div>
+    )
+}
+
+        /* **
+        ** here should have the export >> but defult export shoult be max one time!!
+        ** define the funciton  >> here function names first letter should be **{capital letter}**
+        ** multi line html code thakle here >>  <></> use korte huve ba div use korte huve : cause function only return one thingh 
+        ** close all html tag even which has no colsing taq in vanila html!!!
+        ** must use the camel case not use hifen or another thingh
+
+         */
+
+=> { } use this can get the dinamic valuse like : variable, object dinamic, anything inner part of the {}>> 
+
+
+/// jsx perameter (props) && distructring thingh in paremeter windows
+
+
+function App() {
+
+
+  return (
+    <>
+
+      <h1>Vite + React</h1>
+      <Todo task="learn react" is_ral = "true"></Todo>
+      <Device name="i phone" price="10000"></Device>
+      <Device name="samsung" price="4000"></Device>
+      <Device name="oppo" price="2000"></Device>
+      
+
+
+
+    </>
+  )
+}
+function Device({name,price}){
+  const sty = {
+    border: "2px solid red",
+    borderRadius: "20px",
+    marginBottom: "20px"
+    
+  }
+
+->  i can use as perameter ** props** 
+-> more over i can use the distuctctring method  like this >> Device({name,price}) <<
+-> if use props then it will works like the object so it will be dinamic as the {props.name } like this FileSystem
+
+
+=> jsx file manei reacts >> 
+
+
+/// connect the jsx file extranally 
+
+we can connect jsx file externally by the << export and import>>  methods
+ 
+-> যেখান থেকে পাঠাব সেখানে  export use korte hube >>  defult use korle one time use kora jai
+-> যে ফাইল এ রিড করবে সেখানে import use korte hube >> import Todo from './todo' >> ababe
+
+///  css in jsx file ** i can use style in jsx many way
+
+
+=>  i can use internally in jsx file for css like this way
+
+function Device({name,price}){
+  const sty = {
+    border: "2px solid red",
+    borderRadius: "20px",
+    marginBottom: "20px"
+    
+  }
+  return(
+    <div style={sty}>  {/* here use the style in jsx file !! */}
+      <h2>device name: {name}</h2>
+      <p>proce: {price}</p>
+      
+    </div>
+  )
+}
+
+=> css use in extarnal file like the stryle.css
+
+import './App.css' 
+
+>> ababe add kore nite hideuser
+
+
+=> tailwind use korle normally taiwins cdn use kore tailwind use kora jete pare !! >>>  tailwind more preferabale Here
+
+
+
+///  conditiond use in jsx file ** jsx conditions**
+
+export default function Todo({task, is_ral}) {
+    if (is_ral = true){ /* mind it here given only one = */
+        return (
+            <div>
+                <li>Done: {task}</li>
+                
+            </div>
+        )
+    } 
+}
+
+        /* like this but the moreover i can use her  if else if else leder and more coditons here */
+
+
+
+
+
 
 
 
