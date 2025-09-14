@@ -296,7 +296,126 @@ console.log(name,age); /* here serial does not metter here jsut metter the ** th
 
 
 
-/// 
+/// json is??
+
+const person = `{
+    "name": "hero alom",
+    "age": "34",
+    "locations": "magura"
+}`
+
+        /* here `` >> backtik use korte hui and here this >> json er type hube <<<<<strigh>>>> */
+
+
+///  nomarl onject to convert into the stingify version like the json data making
+
+const person = {
+    name: "hero alom",
+    age: 40,
+    friend: ["bd","test","mithila"],
+    family:{
+        fathername: "kolim uddin",
+        motherName: "falani khatun" 
+
+    }
+}
+console.log(typeof person); // this is now object
+/* convert object to the stringh that means stringh  */
+const jsondata = JSON.stringify(person);
+console.log(jsondata); //  here make the jsnon data from the previous object data
+
+        /* then again json to the object data here >> usinf perse >> ** >> json.perse() <<*** */
+
+
+
+const jsontoobject = JSON.parse(jsondata);
+console.log(jsontoobject);
+        /* 
+        *** >> object to JSON convert << => use , JSON.stringify(OBJECT NAME);
+        *** >> JSON TO object convert  << => use, JSON.parse(JSON STRIGN NAME);
+         */
+
+
+/// fetch << => use and more ......
+
+
+fetch("url")
+.then(res => res.json())
+.then(data => her use funtion or any thingh)
+.catch();
+
+
+///  object keys console kora only
+
+const keys = Object.keys(person);
+console.log(keys); /*  here the only all keys return from thet object  <<< *** here return an array with all keys ******************/
+
+
+/// object values console kora and rerurn in array
+
+const values = Object.values(person);
+console.log(values); /* find all values and return an aray unner the all values */
+
+
+
+/// truthy value falsy values
+
+    /* falsy values */
+1. 0
+2. -0
+3. null
+4. undefine
+5. nan , false
+6. many more............
+
+    /* truthy values */
+1.  true
+2. "anythighn"
+3. {}
+4. []
+
+
+///  Ternary  operators ** conditions ? console : console ** 
+        /* its generally use in if else conditions */
+test ? console.log("its truthy!!") : console.log("its falsy!!");
+/* stntex: >> consditons ? console.log("") : console.log("") << */
+
+    /* more shorten for this ternary variable  */
+const result =  (num >= 10 && num <= 20) ? "true" : "false";
+console.log(result); //  here taking a variable just return the output
+
+    /* more more more shorten */
+const isActive = true;
+const showuser = () => console.log("show user green")
+const hideuser = () => console.log("hide the user ")
+
+// isActive ? showuser () : hideuser();
+
+isActive && showuser(); //or
+isActive || showuser();
+
+
+
+/// string to number
+
+let num = "10";
+console.log(+num); // here coverted into the number
+
+/// number convert into string
+
+let num = 10;
+const result = 10+"";
+console,log(typeof result);
+
+
+
+
+
+
+
+
+
+
 
 
 
