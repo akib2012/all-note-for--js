@@ -4,7 +4,7 @@
 *****>>>> এখানে >> ///  মানে নতুন কিছু বুজায় !!  >> (/*  *) এটা দিয়া বুজায় এক্সত্রা কিছু   
 ******************************** */
 
-import { Component } from "react";
+import { Component, Suspense } from "react";
 import { jsx } from "react/jsx-runtime";
 
 /* ******************************************************************* */
@@ -404,8 +404,8 @@ const hideuser = () => console.log("hide the user ")
 
 // isActive ? showuser () : hideuser();
 
-isActive && showuser(); //or
-isActive || showuser();
+isActive && showuser(); //  true hule ja ja ase sop dekhao
+isActive || showuser(); //  false hule ja ja ase sop dekhabe 
 
 
 
@@ -453,10 +453,10 @@ console.log(dot_notation, braket_notation);
 
 
 
-piya 
+piya
 
 
- 
+
 /* **************** ***********  START HERE REACT JS *******************************8 */
 
 /// 
@@ -467,24 +467,24 @@ piya
 
 
 vite.js থিকা প্রোজেক্ট সেট করতে হুবে
-=> পরে সেখানে সোর্স থিকা কাজ করতে হুবে নতুন জদি লাগে 
-=> more will be update Here 
+    => পরে সেখানে সোর্স থিকা কাজ করতে হুবে নতুন জদি লাগে
+        => more will be update Here
 
 
-/// comoponents based frame work here
+            /// comoponents based frame work here
 
-=> 4 way to to define Component
+            => 4 way to to define Component
 1. similer in look differnet in data
 2. container component
 3. no commot patteren but brekdown for working porpuse
 4. stand alone componetn
 
-=> componetn bild in jsx 
-=> jsx = javascript + xml  file 
->>export the component  
->> define the functions
+    => componetn bild in jsx 
+=> jsx = javascript + xml  file
+    >>export the component
+        >> define the functions
 
-=> general stucture of jsx : 
+            => general stucture of jsx:
 
 export default function Todo({ task, is_ral }) {
     return (
@@ -501,104 +501,271 @@ export default function Todo({ task, is_ral }) {
         ** multi line html code thakle here >>  <></> use korte huve ba div use korte huve : cause function only return one thingh 
         ** close all html tag even which has no colsing taq in vanila html!!!
         ** must use the camel case not use hifen or another thingh
+        ** paremet er modde deful vlaues add kora jay somossa nai 
+        *** inner jsx i can use raw js uding with the >> {} << this ......
 
          */
 
-=> { } use this can get the dinamic valuse like : variable, object dinamic, anything inner part of the {}>> 
+=> { } use this can get the dinamic valuse like: variable, object dinamic, anything inner part of the { }>>
 
 
-/// jsx perameter (props) && distructring thingh in paremeter windows
+    /// jsx perameter (props) && distructring thingh in paremeter windows
 
 
-function App() {
+    function App() {
 
 
-  return (
-    <>
+        return (
+            <>
 
-      <h1>Vite + React</h1>
-      <Todo task="learn react" is_ral = "true"></Todo>
-      <Device name="i phone" price="10000"></Device>
-      <Device name="samsung" price="4000"></Device>
-      <Device name="oppo" price="2000"></Device>
-      
-
+                <h1>Vite + React</h1>
+                <Todo task="learn react" is_ral="true"></Todo>
+                <Device name="i phone" price="10000"></Device>
+                <Device name="samsung" price="4000"></Device>
+                <Device name="oppo" price="2000"></Device>
 
 
-    </>
-  )
-}
-function Device({name,price}){
-  const sty = {
-    border: "2px solid red",
-    borderRadius: "20px",
-    marginBottom: "20px"
-    
-  }
-
-->  i can use as perameter ** props** 
--> more over i can use the distuctctring method  like this >> Device({name,price}) <<
--> if use props then it will works like the object so it will be dinamic as the {props.name } like this FileSystem
 
 
-=> jsx file manei reacts >> 
+            </>
+        )
+    }
+function Device({ name, price }) {
+    const sty = {
+        border: "2px solid red",
+        borderRadius: "20px",
+        marginBottom: "20px"
+
+    }
+
+        -> i can use as perameter ** props **
+            -> more over i can use the distuctctring method  like this >> Device({ name, price }) <<
+                -> if use props then it will works like the object so it will be dinamic as the { props.name } like this FileSystem
 
 
-/// connect the jsx file extranally 
+                    => jsx file manei reacts >>
 
-we can connect jsx file externally by the << export and import>>  methods
- 
--> যেখান থেকে পাঠাব সেখানে  export use korte hube >>  defult use korle one time use kora jai
--> যে ফাইল এ রিড করবে সেখানে import use korte hube >> import Todo from './todo' >> ababe
+
+                        /// connect the jsx file extranally 
+
+                        we can connect jsx file externally by the << export and import>> methods
+
+                            -> যেখান থেকে পাঠাব সেখানে  export use korte hube >> defult use korle one time use kora jai
+                                -> যে ফাইল এ রিড করবে সেখানে import use korte hube >> import Todo from './todo' >> ababe
 
 ///  css in jsx file ** i can use style in jsx many way
 
 
 =>  i can use internally in jsx file for css like this way
 
-function Device({name,price}){
-  const sty = {
-    border: "2px solid red",
-    borderRadius: "20px",
-    marginBottom: "20px"
-    
-  }
-  return(
-    <div style={sty}>  {/* here use the style in jsx file !! */}
-      <h2>device name: {name}</h2>
-      <p>proce: {price}</p>
-      
-    </div>
-  )
-}
+    function Device({ name, price }) {
+        const sty = {
+            border: "2px solid red",
+            borderRadius: "20px",
+            marginBottom: "20px"
+
+        }
+        return (
+            <div style={sty}>  {/* here use the style in jsx file !! */}
+                <h2>device name: {name}</h2>
+                <p>proce: {price}</p>
+
+            </div>
+        )
+    }
 
 => css use in extarnal file like the stryle.css
 
-import './App.css' 
+    import './App.css' 
 
 >> ababe add kore nite hideuser
 
 
-=> tailwind use korle normally taiwins cdn use kore tailwind use kora jete pare !! >>>  tailwind more preferabale Here
+        => tailwind use korle normally taiwins cdn use kore tailwind use kora jete pare!! >>> tailwind more preferabale Here
 
 
 
-///  conditiond use in jsx file ** jsx conditions**
+    ///  conditiond use in jsx file ** jsx conditions**
 
-export default function Todo({task, is_ral}) {
-    if (is_ral = true){ /* mind it here given only one = */
+    export default function Todo({ task, is_ral }) {
+        if (is_ral = true) { /* mind it here given only one = */
+            return (
+                <div>
+                    <li>Done: {task}</li>
+
+                </div>
+            )
+        }
+    }
+
+    /* like this but the moreover i can use her  if else if else leder and more coditons here */
+
+
+    /// ittercation using the array in map method : 
+
+    function App() {
+        const actors = ['bappa raj', 'omor sunny', 'salman sha']
+
+
         return (
-            <div>
-                <li>Done: {task}</li>
-                
-            </div>
+            <>
+
+                <h1>Vite + React</h1>
+                {
+                    actors.map(actor => <Actor actor={actor}></Actor>)
+                }
+
+            </>
         )
-    } 
+    }
+
+    export default function Actor({ actor }) {
+        return <li>nayok: {actor}</li>
+    }
+
+    /// .................................
+
+
+
+
+    /// fetch from apit use method use => use i get the react website and the api -> use -> hoook
+
+    1. just write the simple fetch with till json conversion
+
+    const fetchUsers = fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json()) // here sodo response porjonto likht hube data likhe dorkr nai !!
+
+    2. wrap the data loading component uder the Suspense!!  => inner app.jsx
+
+        < Suspense fallback = {< h3 > loading .....</ >}>
+            <Users fetchUsers={fetchUsers}></Users>
+      </ >
+    3. then the user.jsx er modde -> data distructuring -> innet user function start the use hook with const ->
+        function Users({ fetchUsers }) {
+            const users = use(fetchUsers);
+            return (
+                <div className="cards">
+                    <h2>users:</h2>
+                </div>
+            )
+        }
+
+
+
+
+//// same kaj jodi async wait dia korle akta line vesi korte hube sodo function ta call korte hube new akta line e!!>>>>  just call the async fucntion <<<<
+
+1. first write the async and awit function 
+const fetchFriend = async () => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    return res.json()
 }
 
-        /* like this but the moreover i can use her  if else if else leder and more coditons here */
+2. cal the function tht arrow function
+
+  const fetchFriends = fetchFriend();
+/* this functioncall the inner app() comonent  */
+3.wrap the data loading component uder the Suspense!!  => inner app.jsx
+    < Suspense fallback = "load data now, plase wait unlitt load data complected..." >
+        <Friends fetchFriends={fetchFriends}></Friends>
+      </ >
+
+    4. then the user.jsx er modde -> data distructuring -> innet user function start the use hook with const -> 
+
+import { use } from "react"
+
+function Friends({ fetchFriends }) {
+    const Friends = use(fetchFriends);
+    console.log(Friends);
+    return (
+        <div className="cards">
+            <h2>Friends: {Friends.length}</h2>
+        </div>
+    )
+}
 
 
+/// from api all data get using by map method:
+
+return (
+    <div className="cards">
+        <h2>Friends: {Friends.length}</h2>
+        {
+            Friends.map(friend => <Friend></Friend>)
+        }
+    </div>
+)
+
+/* herer the  <Friend></Friend> is another new components whch is get from the friend comonent */
+
+
+/// to show the ui all friend data in the browser>>
+
+function Friend({ friend }) {
+    console.log(friend);
+    const { name } = friend;
+    return (
+        <div className="cards">
+            <h2>Friend: {name}</h2>
+        </div>
+    )
+}
+
+
+///  repeat work: ====    {the whone works for the api fetch and show the ui using<<<< use >>>> hook }...........
+
+    /* 1. work for app.jsx */
+
+const fetchPost = async () => {
+    const Post = await fetch('https://jsonplaceholder.typicode.com/posts')
+    return Post.json()
+}
+        /* ........more iner retrn fn............ */
+
+<Suspense fallback="loading post...">
+    <Posts fetchPosts={fetchPosts}>
+
+    </Posts>
+</Suspense>
+
+    /* 2.  posts.jsx file code*/
+
+
+import { use } from "react"
+import Post from "./post";
+export default function Posts({ fetchPosts }) {
+    const Posts = use(fetchPosts);
+
+    return (
+        <div className="cards">
+            <h3>post: {Posts.length}</h3>
+            {
+                Posts.map(post => <Post post={post.id}  post={post}></Post>)
+            }
+
+        </div>
+    )
+}
+
+    /* post.jsx file code */
+
+import React from 'react'
+
+function Post({post}) {
+    console.log(post);
+    const {id, title, body, userId} = post;
+  return (
+    <div className='cards'>
+        <h2>Post:</h2>
+        <p>post id : {id}</p>
+        <p>title: {title}</p>
+        <p>body: {body}</p>
+        <p>userid: {userId}</p>
+    
+    </div>
+  )
+}
+
+export default Post
 
 
 
