@@ -139,6 +139,17 @@ const showdata = (categories) => {
 
 loaddata();
 
+/// show the onlcick json
+
+onclick='carddetails(${JSON.stringify(food)})' /* importtant  */
+
+
+
+/// add to card slip 
+onclick='addtoCadr(${JSON.stringify(food)})'
+
+        /* here shoud use the json.stringify */
+
 
 /// toggole for mutliple button when the get from any api
 /* 
@@ -769,13 +780,90 @@ export default Post
 
 
 
+//// conditionsal css class add 
+
+
+//    <div className= {`cou ${visti && 'visited'}`}>
+
+
+/// local storage e data store kora for some time ::
+
+/*******  setitem -> stingfy data -> store data -> = get item -> parse data -> get the item from local storage *****/
+
+1. local Storage a  value rakhle obososi string e convert kore rakhrte hui 
+        const stringified = JSON.stringify("any object here input okay?")
+2. set the value in the localStorage
+        localStorage.setItem('cart', stringified);
+
+
+
+/// for style dyanmic cssdynamic
+
+className={`btn text-black rounded-l-2xl ${toggole === true ? "bg-green-400" : "bg-white"} border-l-0`}
+
+
+/// continer muliple use in jsx file
+
+import React from 'react';
 
 
 
 
 
+const Contiler = ({Children}) => {
+    return (
+        <div className='container mx-auto'>
+            {Children}
+            
+        </div>
+    );
+};
+
+export default Contiler;
 
 
+        /* by this continer i can use this continer jsx use in multiple timeas*/
+
+
+
+
+/// appy inner valnila css use the tailwind css 
+
+@apply  => this is rule of teilwind inner the vanila css
+
+
+
+/// dynamic class style : 
+
+{` defult style..... =>dymaic styte ${}`};
+
+
+
+
+///  priority of the class style  :::
+
+!bg-purple-500 !text-white  /*  here uae the << ! >  sign*/
+
+
+/// multiple button making for the clickable here
+
+        /* out side the return = >  */
+const btns = ["All","Pending","Submitted","Review"];
+
+        /* inside the resturn  */
+
+1. {
+            btns.map(btn => {
+                return 
+            })
+            
+          }
+2. {
+            btns.map((btn, ind) => {
+                return <button key={ind} onClick={() => setToggolbtnstatus(btn)} type="button" className={`toggole-btn ${ind === 0 && "rounded-l-xl"}  ${ind === btns.length - 1 && "rounded-r-xl"} ${toggolbtnstatus === btn && "!bg-purple-500 !text-white"}`}>{btn}</button>
+            })
+            
+          }
 
 
 
