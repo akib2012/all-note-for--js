@@ -866,8 +866,180 @@ const btns = ["All","Pending","Submitted","Review"];
           }
 
 
+///  delet_data !!!
+
+
+const removecard = (issus) => {
+      const filtercard = cardClicked.filter(issu => issu.id !== issus.id)
+      console.log(filtercard);
+      setCardClicked(filtercard);
+}
+
+  
+
+
+/// nav var responsive system step by step below : 
+    => const [open, setOpen] = useState(false);
+        /* declier a state and the setopen declire on the onclick button:  */
+    =>  return (
+        <div className='px-16 py-6 flex justify-between'>
+            <span className='flex gap-4' onClick={() => setOpen(!open)}>
+                {
+                    open ? <X  className='md:hidden'/> : <Menu className='md:hidden' />
+                }
+                
+                
+                <h3>my nabvar</h3>
+            </span>
+
+            <ul className='flex gap-7'>
+                {
+                    navItems.map((nav, id) => <Link id={id} nav={nav}></Link>)
+                }
+            </ul>
+
+            <button type="button">sing in</button>
+
+        </div>
+    ); 
+            /* akto detils ase poro ta ja ja korsi dekhlai parmo ami e korsi  */
+    => final ::>>>>
+    import React, { useState } from 'react';
+import Link from './Link';
+import { Menu, X } from 'lucide-react';
+const navItems = [
+    { id: 1, name: "Home", route: "/" },
+    { id: 2, name: "About", route: "/about" },
+    { id: 3, name: "Services", route: "/services" },
+    { id: 4, name: "Blog", route: "/blog" },
+    { id: 5, name: "Contact", route: "/contact" },
+];
+
+const Nabvar = () => {
+    const navbaar = navItems.map((nav, id) => <Link id={id} nav={nav}></Link>)
+
+    const [open, setOpen] = useState(false);
+
+    return (
+        <div className='px-16 py-6 flex justify-between'>
+            <span className='flex gap-4' onClick={() => setOpen(!open)}>
+                {
+                    open ? <X  className='md:hidden'/> : <Menu className='md:hidden' />
+                }
+                {
+                    <ul className={`md:hidden absolute duration-700 ${open ? 'left-16 top-17' : '-left-34'}`}>
+                        {navbaar}
+                    </ul>
+                }
+                
+                <h3>my nabvar</h3>
+            </span>
+
+            <ul className='hidden md:flex gap-7 '>
+                {
+                    navbaar
+                }
+            </ul>
+
+            <button type="button">sing in</button>
+
+        </div>
+    );
+};
+
+export default Nabvar;
 
 
 
 
 
+/// formate data from axios and use for rechart chart data #formate data #dataformate #data
+
+const formatstudetndata = mdata.map(sdata => {
+        const student = {
+            id: sdata.id,
+            // physics: sdata.marks.physics;
+            chemistry: sdata.marks.chemistry,
+            math: sdata.marks.math,
+            name: sdata.name
+        }
+
+        return student;
+    })
+
+
+
+
+/// 
+
+
+.................................Component
+
+
+
+
+
+/// /* react routing here  */
+
+    /* here is the routing procedures  */
+
+1. 
+import { createBrowserRouter, RouterProvider } from 'react-router'
+
+2.
+const router = createBrowserRouter([ // here all are inner of the  first braket :
+  {
+    path: '/',
+    element: <div>hello react man!!</div>
+  },
+  {
+    path: 'about',
+    element: <div>her is about secntion from the react:</div> /* here pass only any tag or elemnets man */
+  },
+  {
+    path: 'app',
+    Component: App /*  if i want to set a comonets as a router =>  here just inject the comonents name>> */
+  }
+])
+
+3.
+    <RouterProvider router={router}></RouterProvider>
+        /* router provide the >> router provider pass all array of object values : */
+
+
+
+
+/// data loader  #loader react #dataload #reactfetch #routerfetch
+
+=> main.jsx -> 
+inner component : 
+    {
+        path: '/',
+        loader : () => fetch('api link / local json link here'),
+        component : users
+    }
+=> which component to use load data :
+
+const users = useloaderdata();
+
+here users gets all json data !!!
+....................................
+
+
+/// root.jsx routing
+
+{
+    path: '/',
+    Component: Root,
+    children: [
+      { index: true, Component: Home },
+      { path: 'Mobiles', Component: Mobiles },
+      { path: 'Leptops', Component: Leptops },
+      {
+        path: '/Users',
+        loader: () => fetch('https://jsonplaceholder.typicode.com/users'),
+        Component: Users
+      }
+    ]
+
+  },
