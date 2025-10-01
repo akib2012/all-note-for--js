@@ -141,14 +141,14 @@ loaddata();
 
 /// show the onlcick json
 
-onclick='carddetails(${JSON.stringify(food)})' /* importtant  */
+onclick = 'carddetails(${JSON.stringify(food)})' /* importtant  */
 
 
 
 /// add to card slip 
-onclick='addtoCadr(${JSON.stringify(food)})'
+onclick = 'addtoCadr(${JSON.stringify(food)})'
 
-        /* here shoud use the json.stringify */
+/* here shoud use the json.stringify */
 
 
 /// toggole for mutliple button when the get from any api
@@ -724,13 +724,13 @@ function Friend({ friend }) {
 
 ///  repeat work: ====    {the whone works for the api fetch and show the ui using<<<< use >>>> hook }...........
 
-    /* 1. work for app.jsx */
+/* 1. work for app.jsx */
 
 const fetchPost = async () => {
     const Post = await fetch('https://jsonplaceholder.typicode.com/posts')
     return Post.json()
 }
-        /* ........more iner retrn fn............ */
+/* ........more iner retrn fn............ */
 
 <Suspense fallback="loading post...">
     <Posts fetchPosts={fetchPosts}>
@@ -738,7 +738,7 @@ const fetchPost = async () => {
     </Posts>
 </Suspense>
 
-    /* 2.  posts.jsx file code*/
+/* 2.  posts.jsx file code*/
 
 
 import { use } from "react"
@@ -750,30 +750,30 @@ export default function Posts({ fetchPosts }) {
         <div className="cards">
             <h3>post: {Posts.length}</h3>
             {
-                Posts.map(post => <Post post={post.id}  post={post}></Post>)
+                Posts.map(post => <Post post={post.id} post={post}></Post>)
             }
 
         </div>
     )
 }
 
-    /* post.jsx file code */
+/* post.jsx file code */
 
 import React from 'react'
 
-function Post({post}) {
+function Post({ post }) {
     console.log(post);
-    const {id, title, body, userId} = post;
-  return (
-    <div className='cards'>
-        <h2>Post:</h2>
-        <p>post id : {id}</p>
-        <p>title: {title}</p>
-        <p>body: {body}</p>
-        <p>userid: {userId}</p>
-    
-    </div>
-  )
+    const { id, title, body, userId } = post;
+    return (
+        <div className='cards'>
+            <h2>Post:</h2>
+            <p>post id : {id}</p>
+            <p>title: {title}</p>
+            <p>body: {body}</p>
+            <p>userid: {userId}</p>
+
+        </div>
+    )
 }
 
 export default Post
@@ -790,16 +790,16 @@ export default Post
 
 /*******  setitem -> stingfy data -> store data -> = get item -> parse data -> get the item from local storage *****/
 
-1. local Storage a  value rakhle obososi string e convert kore rakhrte hui 
-        const stringified = JSON.stringify("any object here input okay?")
+1. local Storage a  value rakhle obososi string e convert kore rakhrte hui
+const stringified = JSON.stringify("any object here input okay?")
 2. set the value in the localStorage
-        localStorage.setItem('cart', stringified);
+localStorage.setItem('cart', stringified);
 
 
 
 /// for style dyanmic cssdynamic
 
-className={`btn text-black rounded-l-2xl ${toggole === true ? "bg-green-400" : "bg-white"} border-l-0`}
+className = {`btn text-black rounded-l-2xl ${toggole === true ? "bg-green-400" : "bg-white"} border-l-0`}
 
 
 /// continer muliple use in jsx file
@@ -810,11 +810,11 @@ import React from 'react';
 
 
 
-const Contiler = ({Children}) => {
+const Contiler = ({ Children }) => {
     return (
         <div className='container mx-auto'>
             {Children}
-            
+
         </div>
     );
 };
@@ -822,7 +822,7 @@ const Contiler = ({Children}) => {
 export default Contiler;
 
 
-        /* by this continer i can use this continer jsx use in multiple timeas*/
+/* by this continer i can use this continer jsx use in multiple timeas*/
 
 
 
@@ -835,75 +835,75 @@ export default Contiler;
 
 /// dynamic class style : 
 
-{` defult style..... =>dymaic styte ${}`};
+{ ` defult style..... =>dymaic styte ${}` };
 
 
 
 
 ///  priority of the class style  :::
 
-!bg-purple-500 !text-white  /*  here uae the << ! >  sign*/
+!bg - purple - 500!text - white  /*  here uae the << ! >  sign*/
 
 
 /// multiple button making for the clickable here
 
-        /* out side the return = >  */
-const btns = ["All","Pending","Submitted","Review"];
+/* out side the return = >  */
+const btns = ["All", "Pending", "Submitted", "Review"];
 
-        /* inside the resturn  */
+/* inside the resturn  */
 
 1. {
-            btns.map(btn => {
-                return 
-            })
-            
-          }
+    btns.map(btn => {
+        return
+    })
+
+}
 2. {
-            btns.map((btn, ind) => {
-                return <button key={ind} onClick={() => setToggolbtnstatus(btn)} type="button" className={`toggole-btn ${ind === 0 && "rounded-l-xl"}  ${ind === btns.length - 1 && "rounded-r-xl"} ${toggolbtnstatus === btn && "!bg-purple-500 !text-white"}`}>{btn}</button>
-            })
-            
-          }
+    btns.map((btn, ind) => {
+        return <button key={ind} onClick={() => setToggolbtnstatus(btn)} type="button" className={`toggole-btn ${ind === 0 && "rounded-l-xl"}  ${ind === btns.length - 1 && "rounded-r-xl"} ${toggolbtnstatus === btn && "!bg-purple-500 !text-white"}`}>{btn}</button>
+    })
+
+}
 
 
 ///  delet_data !!!
 
 
 const removecard = (issus) => {
-      const filtercard = cardClicked.filter(issu => issu.id !== issus.id)
-      console.log(filtercard);
-      setCardClicked(filtercard);
+    const filtercard = cardClicked.filter(issu => issu.id !== issus.id)
+    console.log(filtercard);
+    setCardClicked(filtercard);
 }
 
-  
+
 
 
 /// nav var responsive system step by step below : 
     => const [open, setOpen] = useState(false);
         /* declier a state and the setopen declire on the onclick button:  */
-    =>  return (
-        <div className='px-16 py-6 flex justify-between'>
-            <span className='flex gap-4' onClick={() => setOpen(!open)}>
-                {
-                    open ? <X  className='md:hidden'/> : <Menu className='md:hidden' />
-                }
-                
-                
-                <h3>my nabvar</h3>
-            </span>
+    => return (
+    <div className='px-16 py-6 flex justify-between'>
+        <span className='flex gap-4' onClick={() => setOpen(!open)}>
+            {
+                open ? <X className='md:hidden' /> : <Menu className='md:hidden' />
+            }
 
-            <ul className='flex gap-7'>
-                {
-                    navItems.map((nav, id) => <Link id={id} nav={nav}></Link>)
-                }
-            </ul>
 
-            <button type="button">sing in</button>
+            <h3>my nabvar</h3>
+        </span>
 
-        </div>
-    ); 
+        <ul className='flex gap-7'>
+            {
+                navItems.map((nav, id) => <Link id={id} nav={nav}></Link>)
+            }
+        </ul>
+
+        <button type="button">sing in</button>
+
+    </div>
+);
             /* akto detils ase poro ta ja ja korsi dekhlai parmo ami e korsi  */
-    => final ::>>>>
+    => final::>>>>
     import React, { useState } from 'react';
 import Link from './Link';
 import { Menu, X } from 'lucide-react';
@@ -924,14 +924,14 @@ const Nabvar = () => {
         <div className='px-16 py-6 flex justify-between'>
             <span className='flex gap-4' onClick={() => setOpen(!open)}>
                 {
-                    open ? <X  className='md:hidden'/> : <Menu className='md:hidden' />
+                    open ? <X className='md:hidden' /> : <Menu className='md:hidden' />
                 }
                 {
                     <ul className={`md:hidden absolute duration-700 ${open ? 'left-16 top-17' : '-left-34'}`}>
                         {navbaar}
                     </ul>
                 }
-                
+
                 <h3>my nabvar</h3>
             </span>
 
@@ -956,16 +956,16 @@ export default Nabvar;
 /// formate data from axios and use for rechart chart data #formate data #dataformate #data
 
 const formatstudetndata = mdata.map(sdata => {
-        const student = {
-            id: sdata.id,
-            // physics: sdata.marks.physics;
-            chemistry: sdata.marks.chemistry,
-            math: sdata.marks.math,
-            name: sdata.name
-        }
+    const student = {
+        id: sdata.id,
+        // physics: sdata.marks.physics;
+        chemistry: sdata.marks.chemistry,
+        math: sdata.marks.math,
+        name: sdata.name
+    }
 
-        return student;
-    })
+    return student;
+})
 
 
 
@@ -981,29 +981,29 @@ const formatstudetndata = mdata.map(sdata => {
 
 /// /* react routing here  */
 
-    /* here is the routing procedures  */
+/* here is the routing procedures  */
 
-1. 
+1.
 import { createBrowserRouter, RouterProvider } from 'react-router'
 
 2.
 const router = createBrowserRouter([ // here all are inner of the  first braket :
-  {
-    path: '/',
-    element: <div>hello react man!!</div>
-  },
-  {
-    path: 'about',
-    element: <div>her is about secntion from the react:</div> /* here pass only any tag or elemnets man */
-  },
-  {
-    path: 'app',
-    Component: App /*  if i want to set a comonets as a router =>  here just inject the comonents name>> */
-  }
+    {
+        path: '/',
+        element: <div>hello react man!!</div>
+    },
+    {
+        path: 'about',
+        element: <div>her is about secntion from the react:</div> /* here pass only any tag or elemnets man */
+    },
+    {
+        path: 'app',
+        Component: App /*  if i want to set a comonets as a router =>  here just inject the comonents name>> */
+    }
 ])
 
 3.
-    <RouterProvider router={router}></RouterProvider>
+    < RouterProvider router = { router } ></ >
         /* router provide the >> router provider pass all array of object values : */
 
 
@@ -1011,18 +1011,52 @@ const router = createBrowserRouter([ // here all are inner of the  first braket 
 
 /// data loader  #loader react #dataload #reactfetch #routerfetch
 
-=> main.jsx -> 
-inner component : 
-    {
-        path: '/',
+=> main.jsx ->
+    inner component:
+{
+    path: '/',
         loader : () => fetch('api link / local json link here'),
-        component : users
-    }
-=> which component to use load data :
+            component : users
+}
+=> which component to use load data:
 
 const users = useloaderdata();
 
-here users gets all json data !!!
+here users gets all json data!!!
+
+
+///  Dynimic routing here::  #dynimc rounting here #rounting #dynamic
+
+bookdata.map(bdata => <Link to={`/book-detils/${bdata.bookId}`}><Book id={bookdata.bookId} bdata={bdata}></Book></Link>)
+
+/* here the main.jsx is */
+
+{
+    path: "book-detils/:id", // dyanmic routing path decilare here !!
+        element: <Bookdetils />,
+            loader: async ({ params }) => {
+                const res = await fetch("/booksData.json");
+                const data = await res.json();
+
+
+                return data.find(book => book.bookId === Number(params.id));
+            }
+},
+
+/// use react spinner: : 
+
+const navigation = useNavigation()
+
+2.
+{
+    navigation?.state === 'loading' ? (
+        <LoadingSpinner></LoadingSpinner>
+    ) : (
+        <Outlet></Outlet>
+    )
+}
+
+
 ....................................
 
 
@@ -1030,16 +1064,41 @@ here users gets all json data !!!
 
 {
     path: '/',
-    Component: Root,
-    children: [
-      { index: true, Component: Home },
-      { path: 'Mobiles', Component: Mobiles },
-      { path: 'Leptops', Component: Leptops },
-      {
-        path: '/Users',
-        loader: () => fetch('https://jsonplaceholder.typicode.com/users'),
-        Component: Users
-      }
-    ]
+        Component: Root,
+            children: [
+                { index: true, Component: Home },
+                { path: 'Mobiles', Component: Mobiles },
+                { path: 'Leptops', Component: Leptops },
+                {
+                    path: '/Users',
+                    loader: () => fetch('https://jsonplaceholder.typicode.com/users'),
+                    Component: Users
+                }
+            ]
 
-  },
+},
+
+
+
+/// usenavigaet #react navigate #hookhavigate
+
+
+<button onClick={handlebtn}>go back</button>
+/* use set navigate  on perticular button*/
+const navi = useNavigate();
+const handlebtn = () => {
+    navi('/Posts')
+}
+/* here use the usenavigate and set the path here */
+
+
+
+
+///  from sunmitted #prevent #submit form 
+e.preventDefault(); 
+...
+
+const handlesubmit = (e) => {
+    e.preventDefault();
+    console.log("sunmited the form");
+}
