@@ -1102,3 +1102,49 @@ const handlesubmit = (e) => {
     e.preventDefault();
     console.log("sunmited the form");
 }
+
+
+/// theme add : 
+1. use daisy ui: 
+=> select a theme and copy thr code
+    => inner code inputh valuse name will submited into the index.css theme name
+
+
+
+/// contest api : 
+
+1. export const Cartcontest = createContext({}) /* here create contest got fromthe react only */
+
+2.
+    < Cartcontest.provider value = {{ list, setList }}> {/* network creation and sere every components */ }
+
+3. {/* recive the context dara from any components */ }
+
+const contextvalue = use(Cartcontest)
+console.log(contextvalue);
+
+
+important:  : .......... onClick={() => setList((prev) => [...prev, location?.state] 
+
+
+
+///   bg image add here #bgimage #imagebg #bgimage
+
+ 'style={{ backgroundImage: `url(${Img})` }}>
+
+
+ 
+
+ /// prevetnt fedult #form remove #form refresh remove #form prevent 
+
+
+ e.preventDefault(); /*  এটি form refresh হওয়া বন্ধ করবে */
+
+
+
+
+
+
+
+
+
