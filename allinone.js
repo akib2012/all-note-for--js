@@ -1124,7 +1124,7 @@ const contextvalue = use(Cartcontest)
 console.log(contextvalue);
 
 
-important:  : .......... onClick={() => setList((prev) => [...prev, location?.state] 
+important:  : ..........onClick = {() => setList((prev) => [...prev, location?.state]
 
 
 
@@ -1133,7 +1133,7 @@ important:  : .......... onClick={() => setList((prev) => [...prev, location?.st
  'style={{ backgroundImage: `url(${Img})` }}>
 
 
- 
+
 
  /// prevetnt fedult #form remove #form refresh remove #form prevent 
 
@@ -1141,7 +1141,94 @@ important:  : .......... onClick={() => setList((prev) => [...prev, location?.st
  e.preventDefault(); /*  এটি form refresh হওয়া বন্ধ করবে */
 
 
+/// form input value by the e > 01. form data collected er first step here !!!
 
+const handleform = (e) => {
+    e.preventDefault();
+    console.log(e.target.name.value); /* here name is the that perticular input feild getting system */
+
+
+}
+
+/// 02 . second method >>  get() >>  use the action atribute >> use also a functions>> 
+
+const handleaction = (handledata) => {
+    console.log(handledata.get('name'));
+    console.log(handledata.get('mail'));
+
+}
+return (
+    <div className='mt-44 ml-148'>
+        <h3>form action here</h3>
+        <form action={handleaction}>
+            <input className='border' type="text" name='name' placeholder='name' /><br />
+            <input className='border my-6' type="email" name="mail" placeholder='email' id="" /><br />
+            <input className='btn' type="submit" value="submit" />
+        </form>
+
+    </div>
+);
+
+
+/// light theme : theme
+
+< data-theme="light" lang = "en" >
+
+
+    /// folder of jsx : folder 
+
+    1. routers
+2. pageses
+3.componetns
+4, hooks
+5, layouts
+
+
+///  error page :  error page addres : use >>> * <<< 
+
+{
+    path: '*',
+        Component: Errorpage,
+        }
+
+
+$ updated version for internal and also extarnal error::
+
+
+errorElement: <Errorpage></Errorpage>,
+
+
+
+            /* root folder e this error element use the  */
+
+//// which resone to creatw the internal error this <<< also use the hook >> userouteerror  >> the internal error showing  here 
+
+import React from 'react';
+import { useRouteError } from 'react-router';
+
+const Errorpage = () => {
+    const error = useRouteError();
+    return (
+
+        <div>{error.message}</div> /*  here inner div we can use the any other components here and the customized comoponent allow also  */
+    );
+};
+
+export default Errorpage;
+
+
+
+
+/// header footer setup:  main content set up  #flex-1 #formate header footer
+
+<div className='max-w-10/12 mx-auto flex flex-col min-h-screen'>
+    <Nabvar></Nabvar>
+    <div className='flex-1'>
+        <Outlet></Outlet>
+    </div>
+    <Footer></Footer>
+
+</div>
 
 
 
